@@ -15,6 +15,7 @@ class PrimeFactorsTest {
     void factors() {
         PrimeFactors pf = new PrimeFactors();
         assertThat(pf.primeFactorsOf(1), isListOf());
+        assertThat(pf.primeFactorsOf(2), isListOf(2));
     }
 
     private Matcher<List<Integer>> isListOf(Integer... ints) {
