@@ -23,6 +23,8 @@ class PrimeFactorsTest {
         assertThat(pf.primeFactorsOf(7), isListOf(7));
         assertThat(pf.primeFactorsOf(8), isListOf(2, 2, 2));
         assertThat(pf.primeFactorsOf(9), isListOf(3, 3));
+        assertThat(pf.primeFactorsOf(10), isListOf(2, 5));
+        assertThat(pf.primeFactorsOf(228), isListOf(2, 2, 3, 19));
     }
 
     private Matcher<List<Integer>> isListOf(Integer... ints) {
