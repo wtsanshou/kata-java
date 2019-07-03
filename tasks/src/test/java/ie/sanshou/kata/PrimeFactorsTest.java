@@ -1,14 +1,24 @@
 package ie.sanshou.kata;
 
+import org.hamcrest.Matcher;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import java.util.List;
+
+import static java.util.Arrays.asList;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 class PrimeFactorsTest {
 
     @Test
     void factors() {
-        fail();
+        PrimeFactors pf = new PrimeFactors();
+        assertThat(pf.primeFactorsOf(1), isListOf());
+    }
+
+    private Matcher<List<Integer>> isListOf(Integer... ints) {
+        return is(asList(ints));
     }
 
 }
