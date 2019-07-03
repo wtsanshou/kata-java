@@ -5,6 +5,7 @@ The purpose of this project is to collect all great Kata programming task
 ## Kata List
 
 1. Prime Factors
+2. Wrap
 
 ## Note
 

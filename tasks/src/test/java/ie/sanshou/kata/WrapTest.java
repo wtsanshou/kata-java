@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class PrimeFactors_Test {
+public class WrapTest {
 
     @Test
     public void foo(){
