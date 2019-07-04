@@ -15,4 +15,8 @@ class Stack {
     void push(int element) {
         size++;
     }
+
+    void pop() {
+        size--;
+    }
 }
