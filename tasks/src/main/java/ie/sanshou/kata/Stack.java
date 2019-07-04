@@ -3,6 +3,7 @@ package ie.sanshou.kata;
 class Stack {
 
     private int size;
+    private int capacity;
 
     static Stack make(int capacity) {
         return new Stack(capacity);
@@ -10,6 +11,7 @@ class Stack {
 
     private Stack(int capacity) {
 
+        this.capacity = capacity;
     }
 
     boolean isEmpty() {
@@ -21,6 +23,7 @@ class Stack {
     }
 
     void push(int element) {
+        if(size == capacity) throw new Overflow();
         size++;
     }
 
@@ -28,4 +31,6 @@ class Stack {
         size--;
     }
 
+    class Overflow extends RuntimeException{
+    }
 }

@@ -37,6 +37,10 @@ class StackTest {
 
     @Test
     void whenPushedPastLimit_StackOverflows(){
-        
+        stack.push(1);
+        stack.push(1);
+        assertThrows(Stack.Overflow.class, () ->{
+            stack.push(1);
+        });
     }
 }
