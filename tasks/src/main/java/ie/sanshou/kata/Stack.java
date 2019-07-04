@@ -7,4 +7,8 @@ public class Stack {
     public boolean isEmpty() {
         return empty;
     }
+
+    public int getSize() {
+        return 0;
+    }
 }
