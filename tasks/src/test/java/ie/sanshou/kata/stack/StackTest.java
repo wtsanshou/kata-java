@@ -85,4 +85,10 @@ class StackTest {
         assertEquals(1, stack.top());
     }
 
+    @Test
+    void wenStackIsEmpty_topThrowsEmpty(){
+        assertThrows(Stack.Empty.class, ()->{
+            stack.top();
+        });
+    }
 }

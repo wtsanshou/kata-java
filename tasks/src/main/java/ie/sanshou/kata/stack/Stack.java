@@ -15,4 +15,6 @@ public interface Stack {
     class IllegalCapacity extends RuntimeException {
     }
 
+    class Empty extends RuntimeException {
+    }
 }

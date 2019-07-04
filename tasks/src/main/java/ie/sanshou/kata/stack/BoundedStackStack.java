@@ -41,6 +41,7 @@ public class BoundedStackStack implements Stack {
 
     @Override
     public int top() {
+        if(size==0) throw new Empty();
         return elements[--size];
     }
 
