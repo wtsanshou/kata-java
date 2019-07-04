@@ -17,4 +17,10 @@ public interface Stack {
 
     class Empty extends RuntimeException {
     }
+
+    class Overflow extends RuntimeException {
+    }
+
+    class Underflow extends RuntimeException {
+    }
 }

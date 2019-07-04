@@ -45,12 +45,6 @@ public class BoundedStackStack implements Stack {
         return elements[--size];
     }
 
-    static class Overflow extends RuntimeException {
-    }
-
-    static class Underflow extends RuntimeException {
-    }
-
     private static class ZeroStack implements Stack {
 
         @Override
