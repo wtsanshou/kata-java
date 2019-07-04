@@ -5,12 +5,19 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class StackTest {
+class StackTest {
 
     @Test
-    public void newlyCreateStack_ShouldBeEmpty() {
+    void newlyCreateStack_ShouldBeEmpty() {
         Stack stack = new Stack();
         assertTrue(stack.isEmpty());
         assertEquals(0, stack.getSize());
+    }
+
+    @Test
+    void afterOnePush_StackSize_ShouldBeOne(){
+        Stack stack = new Stack();
+        stack.push(1);
+        assertEquals(1, stack.getSize());
     }
 }

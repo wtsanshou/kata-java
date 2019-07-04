@@ -1,14 +1,18 @@
 package ie.sanshou.kata;
 
-public class Stack {
+class Stack {
 
     private boolean empty = true;
-
-    public boolean isEmpty() {
+private int size;
+    boolean isEmpty() {
         return empty;
     }
 
-    public int getSize() {
-        return 0;
+    int getSize() {
+        return size;
+    }
+
+     void push(int n) {
+        size++;
     }
 }
