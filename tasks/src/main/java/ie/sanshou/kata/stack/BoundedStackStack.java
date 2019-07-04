@@ -46,10 +46,10 @@ public class BoundedStackStack implements Stack {
     }
 
     @Override
-    public int find(int element) {
+    public Integer find(int element) {
         for (int i = size - 1; i >= 0; i--)
             if (elements[i] == element) return (size - 1) - i;
-        return -1;
+        return null;
     }
 
     private static class ZeroStack implements Stack {
@@ -80,8 +80,8 @@ public class BoundedStackStack implements Stack {
         }
 
         @Override
-        public int find(int element) {
-            return -1;
+        public Integer find(int element) {
+            return null;
         }
     }
 

@@ -101,10 +101,15 @@ class StackTest {
     }
 
     @Test
-    void givenStackWithOneTwoPushed_FindOneAndTwo(){
+    void givenStackWithOneTwoPushed_FindOneAndTwo() {
         stack.push(1);
         stack.push(2);
-        assertEquals(1, stack.find(1));
-        assertEquals(0, stack.find(2));
+        assertEquals(1, stack.find(1).intValue());
+        assertEquals(0, stack.find(2).intValue());
+    }
+
+    @Test
+    void givenStackWithNo2_find2ShouldReturnNull() {
+        assertNull(stack.find(2));
     }
 }

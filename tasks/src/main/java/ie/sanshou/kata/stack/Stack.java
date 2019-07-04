@@ -12,7 +12,7 @@ public interface Stack {
 
     int top();
 
-    int find(int element);
+    Integer find(int element);
 
     class IllegalCapacity extends RuntimeException {
     }
