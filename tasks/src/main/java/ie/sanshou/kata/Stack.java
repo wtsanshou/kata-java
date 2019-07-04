@@ -7,7 +7,7 @@ class Stack {
 
     private int size;
     private int capacity;
-    private List<Integer> elements = new ArrayList<>();
+    private int[] elements;
 
     static Stack make(int capacity) {
         return new Stack(capacity);
@@ -15,6 +15,7 @@ class Stack {
 
     private Stack(int capacity) {
         this.capacity = capacity;
+        elements = new int[capacity];
     }
 
     boolean isEmpty() {
@@ -27,14 +28,12 @@ class Stack {
 
     void push(int element) {
         if (size == capacity) throw new Overflow();
-        size++;
-        this.elements.add(element);
+        this.elements[size++] = element;
     }
 
     int pop() {
         if (size == 0) throw new Underflow();
-        size--;
-        return elements.get(size);
+        return elements[--size];
     }
 
     class Overflow extends RuntimeException {
