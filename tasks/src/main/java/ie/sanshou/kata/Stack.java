@@ -1,8 +1,5 @@
 package ie.sanshou.kata;
 
-import java.util.ArrayList;
-import java.util.List;
-
 class Stack {
 
     private int size;
@@ -10,6 +7,7 @@ class Stack {
     private int[] elements;
 
     static Stack make(int capacity) {
+        if(capacity<0) throw new IllegalCapacity();
         return new Stack(capacity);
     }
 
@@ -40,5 +38,8 @@ class Stack {
     }
 
     class Underflow extends RuntimeException {
+    }
+
+    static class IllegalCapacity extends RuntimeException {
     }
 }

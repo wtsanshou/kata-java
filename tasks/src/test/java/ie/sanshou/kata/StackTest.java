@@ -64,4 +64,11 @@ class StackTest {
         assertEquals(2, stack.pop());
         assertEquals(1, stack.pop());
     }
+
+    @Test
+    void whenCreatingStackWithNegativeSize_ShouldThrowIllegalCapacity(){
+        assertThrows(Stack.IllegalCapacity.class, ()->{
+            Stack.make(-1);
+        });
+    }
 }
