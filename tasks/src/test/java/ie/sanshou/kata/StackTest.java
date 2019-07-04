@@ -71,4 +71,12 @@ class StackTest {
             Stack.make(-1);
         });
     }
+
+    @Test
+    void whenCreatingStackWithZeroCapacity_AnyPushShouldOverflow(){
+        assertThrows(Stack.Overflow.class, ()->{
+            stack = Stack.make(0);
+            stack.push(1);
+        });
+    }
 }
