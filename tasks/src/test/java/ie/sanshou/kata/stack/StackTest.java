@@ -78,4 +78,11 @@ class StackTest {
             stack.push(1);
         });
     }
+
+    @Test
+    void whenPushOne_OneShouldBeOnTheTop(){
+        stack.push(1);
+        assertEquals(1, stack.top());
+    }
+
 }

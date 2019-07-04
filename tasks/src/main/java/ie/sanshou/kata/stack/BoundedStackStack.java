@@ -39,6 +39,11 @@ public class BoundedStackStack implements Stack {
         return elements[--size];
     }
 
+    @Override
+    public int top() {
+        return elements[--size];
+    }
+
     static class Overflow extends RuntimeException {
     }
 
@@ -65,6 +70,11 @@ public class BoundedStackStack implements Stack {
         @Override
         public int pop() {
             throw new Underflow();
+        }
+
+        @Override
+        public int top() {
+            return -1;
         }
     }
 

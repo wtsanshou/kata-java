@@ -10,6 +10,9 @@ public interface Stack {
 
     int pop();
 
-    public static class IllegalCapacity extends RuntimeException {
+    int top();
+
+    class IllegalCapacity extends RuntimeException {
     }
+
 }
