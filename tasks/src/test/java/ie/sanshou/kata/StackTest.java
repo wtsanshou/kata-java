@@ -51,4 +51,9 @@ class StackTest {
         });
     }
 
+    @Test
+    void whenOneIsPushed_OneIsPopped(){
+        stack.push(1);
+        assertEquals(1, stack.pop());
+    }
 }
