@@ -99,4 +99,12 @@ class StackTest {
             stack.top();
         });
     }
+
+    @Test
+    void givenStackWithOneTwoPushed_FindOneAndTwo(){
+        stack.push(1);
+        stack.push(2);
+        assertEquals(1, stack.find(1));
+        assertEquals(0, stack.find(2));
+    }
 }

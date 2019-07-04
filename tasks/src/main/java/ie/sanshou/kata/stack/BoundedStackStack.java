@@ -41,8 +41,15 @@ public class BoundedStackStack implements Stack {
 
     @Override
     public int top() {
-        if(size==0) throw new Empty();
+        if (size == 0) throw new Empty();
         return elements[--size];
+    }
+
+    @Override
+    public int find(int element) {
+        for (int i = size - 1; i >= 0; i--)
+            if (elements[i] == element) return (size - 1) - i;
+        return -1;
     }
 
     private static class ZeroStack implements Stack {
@@ -70,6 +77,11 @@ public class BoundedStackStack implements Stack {
         @Override
         public int top() {
             throw new Empty();
+        }
+
+        @Override
+        public int find(int element) {
+            return -1;
         }
     }
 
