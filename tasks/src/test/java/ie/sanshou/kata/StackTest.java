@@ -43,4 +43,12 @@ class StackTest {
             stack.push(1);
         });
     }
+
+    @Test
+    void winEmptyStackIsPopped_ShouldThrowUnderflow(){
+        assertThrows(Stack.Underflow.class, () ->{
+            stack.pop();
+        });
+    }
+
 }

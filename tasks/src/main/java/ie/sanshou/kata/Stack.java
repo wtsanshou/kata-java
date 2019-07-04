@@ -23,14 +23,18 @@ class Stack {
     }
 
     void push(int element) {
-        if(size == capacity) throw new Overflow();
+        if (size == capacity) throw new Overflow();
         size++;
     }
 
     void pop() {
+        if (size == 0) throw new Underflow();
         size--;
     }
 
-    class Overflow extends RuntimeException{
+    class Overflow extends RuntimeException {
+    }
+
+    class Underflow extends RuntimeException {
     }
 }
