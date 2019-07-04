@@ -2,7 +2,6 @@ package ie.sanshou.kata.stack;
 
 public interface Stack {
 
-
     boolean isEmpty();
 
     int getSize();
