@@ -80,14 +80,22 @@ class StackTest {
     }
 
     @Test
-    void whenPushOne_OneShouldBeOnTheTop(){
+    void whenPushOne_OneShouldBeOnTheTop() {
         stack.push(1);
         assertEquals(1, stack.top());
     }
 
     @Test
-    void wenStackIsEmpty_topThrowsEmpty(){
-        assertThrows(Stack.Empty.class, ()->{
+    void wenStackIsEmpty_topThrowsEmpty() {
+        assertThrows(Stack.Empty.class, () -> {
+            stack.top();
+        });
+    }
+
+    @Test
+    void withZeroCapacityStack_topThrowsEmpty() {
+        assertThrows(Stack.Empty.class, () -> {
+            stack = BoundedStackStack.make(0);
             stack.top();
         });
     }

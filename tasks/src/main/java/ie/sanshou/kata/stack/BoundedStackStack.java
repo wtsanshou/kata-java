@@ -75,7 +75,7 @@ public class BoundedStackStack implements Stack {
 
         @Override
         public int top() {
-            return -1;
+            throw new Empty();
         }
     }
 
