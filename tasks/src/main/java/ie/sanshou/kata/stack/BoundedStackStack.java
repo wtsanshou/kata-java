@@ -1,35 +1,39 @@
-package ie.sanshou.kata;
+package ie.sanshou.kata.stack;
 
-class Stack {
+public class BoundedStackStack implements Stack {
 
     private int size;
     private int capacity;
     private int[] elements;
 
     static Stack make(int capacity) {
-        if(capacity<0) throw new IllegalCapacity();
-        return new Stack(capacity);
+        if (capacity < 0) throw new IllegalCapacity();
+        return new BoundedStackStack(capacity);
     }
 
-    private Stack(int capacity) {
+    private BoundedStackStack(int capacity) {
         this.capacity = capacity;
         elements = new int[capacity];
     }
 
-    boolean isEmpty() {
+    @Override
+    public boolean isEmpty() {
         return size == 0;
     }
 
-    int getSize() {
+    @Override
+    public int getSize() {
         return size;
     }
 
-    void push(int element) {
+    @Override
+    public void push(int element) {
         if (size == capacity) throw new Overflow();
         this.elements[size++] = element;
     }
 
-    int pop() {
+    @Override
+    public int pop() {
         if (size == 0) throw new Underflow();
         return elements[--size];
     }
@@ -40,6 +44,4 @@ class Stack {
     class Underflow extends RuntimeException {
     }
 
-    static class IllegalCapacity extends RuntimeException {
-    }
 }

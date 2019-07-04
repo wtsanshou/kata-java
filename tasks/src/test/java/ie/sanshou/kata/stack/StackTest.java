@@ -1,6 +1,5 @@
-package ie.sanshou.kata;
+package ie.sanshou.kata.stack;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,8 +10,8 @@ class StackTest {
     private Stack stack;
 
     @BeforeEach
-     void setup(){
-        stack = Stack.make(2);
+    void setup() {
+        stack = BoundedStackStack.make(2);
     }
 
     @Test
@@ -22,43 +21,43 @@ class StackTest {
     }
 
     @Test
-    void afterOnePush_StackSize_ShouldBeOne(){
+    void afterOnePush_StackSize_ShouldBeOne() {
         stack.push(1);
         assertEquals(1, stack.getSize());
         assertFalse(stack.isEmpty());
     }
 
     @Test
-    void afterOnePushAndOnePop_ShouldBeEmpty(){
+    void afterOnePushAndOnePop_ShouldBeEmpty() {
         stack.push(1);
         stack.pop();
         assertTrue(stack.isEmpty());
     }
 
     @Test
-    void whenPushedPastLimit_StackOverflows(){
+    void whenPushedPastLimit_StackOverflows() {
         stack.push(1);
         stack.push(1);
-        assertThrows(Stack.Overflow.class, () ->{
+        assertThrows(BoundedStackStack.Overflow.class, () -> {
             stack.push(1);
         });
     }
 
     @Test
-    void winEmptyStackIsPopped_ShouldThrowUnderflow(){
-        assertThrows(Stack.Underflow.class, () ->{
+    void winEmptyStackIsPopped_ShouldThrowUnderflow() {
+        assertThrows(BoundedStackStack.Underflow.class, () -> {
             stack.pop();
         });
     }
 
     @Test
-    void whenOneIsPushed_OneIsPopped(){
+    void whenOneIsPushed_OneIsPopped() {
         stack.push(1);
         assertEquals(1, stack.pop());
     }
 
     @Test
-    void whenOneAndTwoArePushed_TwoAndOneArePopped(){
+    void whenOneAndTwoArePushed_TwoAndOneArePopped() {
         stack.push(1);
         stack.push(2);
         assertEquals(2, stack.pop());
@@ -66,16 +65,16 @@ class StackTest {
     }
 
     @Test
-    void whenCreatingStackWithNegativeSize_ShouldThrowIllegalCapacity(){
-        assertThrows(Stack.IllegalCapacity.class, ()->{
-            Stack.make(-1);
+    void whenCreatingStackWithNegativeSize_ShouldThrowIllegalCapacity() {
+        assertThrows(BoundedStackStack.IllegalCapacity.class, () -> {
+            BoundedStackStack.make(-1);
         });
     }
 
     @Test
-    void whenCreatingStackWithZeroCapacity_AnyPushShouldOverflow(){
-        assertThrows(Stack.Overflow.class, ()->{
-            stack = Stack.make(0);
+    void whenCreatingStackWithZeroCapacity_AnyPushShouldOverflow() {
+        assertThrows(BoundedStackStack.Overflow.class, () -> {
+            stack = BoundedStackStack.make(0);
             stack.push(1);
         });
     }
