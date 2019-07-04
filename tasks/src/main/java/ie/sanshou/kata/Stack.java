@@ -1,17 +1,19 @@
 package ie.sanshou.kata;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Stack {
 
     private int size;
     private int capacity;
-    private int element;
+    private List<Integer> elements = new ArrayList<>();
 
     static Stack make(int capacity) {
         return new Stack(capacity);
     }
 
     private Stack(int capacity) {
-
         this.capacity = capacity;
     }
 
@@ -26,13 +28,13 @@ class Stack {
     void push(int element) {
         if (size == capacity) throw new Overflow();
         size++;
-        this.element = element;
+        this.elements.add(element);
     }
 
     int pop() {
         if (size == 0) throw new Underflow();
         size--;
-        return element;
+        return elements.get(size);
     }
 
     class Overflow extends RuntimeException {
