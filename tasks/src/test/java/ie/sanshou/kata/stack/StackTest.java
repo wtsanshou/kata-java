@@ -104,8 +104,10 @@ class StackTest {
     void givenStackWithOneTwoPushed_FindOneAndTwo() {
         stack.push(1);
         stack.push(2);
-        assertEquals(1, stack.find(1).intValue());
-        assertEquals(0, stack.find(2).intValue());
+        final int oneIndex = stack.find(1);
+        assertEquals(1, oneIndex);
+        final int towIndex = stack.find(2);
+        assertEquals(0, towIndex);
     }
 
     @Test
