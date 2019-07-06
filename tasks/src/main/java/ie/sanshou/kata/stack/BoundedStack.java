@@ -3,12 +3,13 @@ package ie.sanshou.kata.stack;
 class BoundedStack implements Stack {
 
     private int size;
-    private int element;
+    private int[] elements;
     private int capacity;
 
     private BoundedStack(int capacity) {
         if (capacity < 0) throw new IllegalCapacity();
         this.capacity = capacity;
+        elements = new int[capacity];
     }
 
     static synchronized Stack MAKE(int capacity) {
@@ -24,15 +25,15 @@ class BoundedStack implements Stack {
     @Override
     public void push(int element) {
         if (size == capacity) throw new Overflow();
+        this.elements[size] = element;
         size++;
-        this.element = element;
     }
 
     @Override
     public int pop() {
         if (size == 0) throw new Underflow();
         size--;
-        return element;
+        return elements[size];
     }
 
     @Override

@@ -67,4 +67,14 @@ class BoundedStackTest {
         stack = BoundedStack.MAKE(0);
         assertTrue(stack.isEmpty());
     }
+
+    @Test
+    void afterPushOneAndTwo_shouldPopTwoAndOne(){
+        stack.push(1);
+        stack.push(2);
+        final int two = stack.pop();
+        assertEquals(2, two);
+        final int one = stack.pop();
+        assertEquals(1, one);
+    }
 }
