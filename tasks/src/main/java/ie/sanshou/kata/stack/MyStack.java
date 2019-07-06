@@ -1,7 +1,14 @@
 package ie.sanshou.kata.stack;
 
 class MyStack {
-     boolean isEmpty() {
-        return true;
+
+    private int size;
+
+    boolean isEmpty() {
+        return size==0;
+    }
+
+    void push(int element) {
+        size++;
     }
 }
