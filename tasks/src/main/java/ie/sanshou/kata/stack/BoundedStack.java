@@ -2,7 +2,7 @@ package ie.sanshou.kata.stack;
 
 class BoundedStack implements Stack {
 
-    private int size;
+    private int top;
     private int[] elements;
     private int capacity;
 
@@ -19,26 +19,24 @@ class BoundedStack implements Stack {
 
     @Override
     public boolean isEmpty() {
-        return size == 0;
+        return top == 0;
     }
 
     @Override
     public void push(int element) {
-        if (size == capacity) throw new Overflow();
-        this.elements[size] = element;
-        size++;
+        if (top == capacity) throw new Overflow();
+        this.elements[top++] = element;
     }
 
     @Override
     public int pop() {
-        if (size == 0) throw new Underflow();
-        size--;
-        return elements[size];
+        if (top == 0) throw new Underflow();
+        return elements[--top];
     }
 
     @Override
     public int getSize() {
-        return size;
+        return top;
     }
 
     private static class EmptyStack implements Stack {
