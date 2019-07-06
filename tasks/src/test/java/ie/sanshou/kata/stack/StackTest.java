@@ -2,8 +2,7 @@ package ie.sanshou.kata.stack;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class StackTest {
 
@@ -18,6 +17,13 @@ class StackTest {
     void stackCanPushOne() {
         stack.push(1);
         assertFalse(stack.isEmpty());
+    }
+
+    @Test
+    void stackPushOne_canGetOne(){
+        stack.push(1);
+        final int one = stack.pop();
+        assertEquals(1, one);
     }
 
 }
