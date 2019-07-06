@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StackTest {
 
-    private Stack stack = new Stack();
+    private Stack stack = Stack.MAKE(2);
 
     @Test
     void newlyCreatedStack_shouldBeEmpty() {
@@ -21,11 +21,17 @@ class StackTest {
     }
 
     @Test
-    void stackPushOneAndPopOne_shouldBeEmpty() {
+    void afterPushOneAndPopOne_stackShouldBeEmpty() {
         stack.push(1);
         stack.pop();
         assertTrue(stack.isEmpty());
     }
 
+    @Test
+    void afterPushOneExceedStackLimit_shouldThrowOverflowException() {
+        stack.push(1);
+        stack.push(1);
+        assertThrows(Stack.Overflow.class, () -> stack.push(1));
+    }
 
 }
