@@ -1,46 +1,20 @@
 package ie.sanshou.kata.stack;
 
-class Stack {
+public interface Stack {
+    boolean isEmpty();
 
-    private int size;
-    private int element;
-    private int capacity;
+    void push(int element);
 
-    private Stack(int capacity) {
-        if(capacity<0) throw new IllegalCapacity();
-        this.capacity = capacity;
+    int pop();
+
+    int getSize();
+
+    final class Overflow extends RuntimeException {
     }
 
-    static synchronized Stack MAKE(int capacity) {
-        return new Stack(capacity);
+    final class Underflow extends RuntimeException {
     }
 
-    boolean isEmpty() {
-        return size == 0;
-    }
-
-    void push(int element) {
-        if (size == capacity) throw new Overflow();
-        size++;
-        this.element = element;
-    }
-
-    int pop() {
-        if (size == 0) throw new Underflow();
-        size--;
-        return element;
-    }
-
-    int getSize() {
-        return size;
-    }
-
-    static final class Overflow extends RuntimeException {
-    }
-
-    static final class Underflow extends RuntimeException {
-    }
-
-    static final class IllegalCapacity extends RuntimeException{
+    final class IllegalCapacity extends RuntimeException{
     }
 }
