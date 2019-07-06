@@ -12,7 +12,7 @@ class BoundedStack implements Stack {
         elements = new int[capacity];
     }
 
-    static synchronized Stack MAKE(int capacity) {
+    static Stack MAKE(int capacity) {
         if (capacity == 0) return new EmptyStack();
         return new BoundedStack(capacity);
     }
@@ -41,8 +41,10 @@ class BoundedStack implements Stack {
 
     @Override
     public int peek() {
-        return elements[top-1];
+        if(top==0) throw new EmptyStackException();
+        return elements[top - 1];
     }
+
 
     private static class EmptyStack implements Stack {
         @Override
@@ -67,7 +69,7 @@ class BoundedStack implements Stack {
 
         @Override
         public int peek() {
-            return 0;
+            throw new EmptyStackException();
         }
     }
 }

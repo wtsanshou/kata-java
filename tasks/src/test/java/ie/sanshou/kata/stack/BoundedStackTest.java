@@ -63,6 +63,12 @@ class BoundedStackTest {
     }
 
     @Test
+    void whenCreatingStackWithZeroCapacityAndCallPeek_shouldThrowEmptyStackException() {
+        stack = BoundedStack.MAKE(0);
+        assertThrows(BoundedStack.EmptyStackException.class, () -> stack.peek());
+    }
+
+    @Test
     void whenCreatingStackWithZeroCapacity_stackShouldBeEmpty() {
         stack = BoundedStack.MAKE(0);
         assertTrue(stack.isEmpty());
@@ -76,6 +82,11 @@ class BoundedStackTest {
         assertEquals(2, two);
         final int one = stack.pop();
         assertEquals(1, one);
+    }
+
+    @Test
+    void whenStackIsEmpty_peekShouldThrowEmptyStackException(){
+        assertThrows(Stack.EmptyStackException.class, () -> stack.peek());
     }
 
     @Test
