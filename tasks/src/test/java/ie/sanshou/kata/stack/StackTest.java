@@ -44,4 +44,9 @@ class StackTest {
         assertThrows(Stack.IllegalCapacity.class, () -> Stack.MAKE(-1));
     }
 
+@Test
+    void whenCreatingStackWithZeroCapacityAndPushOne_shouldOverflowException() {
+        stack = Stack.MAKE(0);
+        assertThrows(Stack.Overflow.class, ()-> stack.push(1));
+    }
 }
