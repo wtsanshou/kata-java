@@ -7,11 +7,12 @@ class BoundedStack implements Stack {
     private int capacity;
 
     private BoundedStack(int capacity) {
-        if(capacity<0) throw new IllegalCapacity();
+        if (capacity < 0) throw new IllegalCapacity();
         this.capacity = capacity;
     }
 
-    static synchronized BoundedStack MAKE(int capacity) {
+    static synchronized Stack MAKE(int capacity) {
+        if (capacity == 0) return new EmptyStack();
         return new BoundedStack(capacity);
     }
 
@@ -39,4 +40,25 @@ class BoundedStack implements Stack {
         return size;
     }
 
+    private static class EmptyStack implements Stack {
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public void push(int element) {
+            throw new Overflow();
+        }
+
+        @Override
+        public int pop() {
+            return 0;
+        }
+
+        @Override
+        public int getSize() {
+            return 0;
+        }
+    }
 }
