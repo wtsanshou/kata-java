@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 class StackTest {
 
     @Test
-    void nothing() {
-
+    void createStack() {
+        MyStack stack = new MyStack();
     }
 }
