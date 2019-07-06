@@ -55,4 +55,10 @@ class BoundedStackTest {
         stack = BoundedStack.MAKE(0);
         assertThrows(BoundedStack.Underflow.class, () -> stack.pop());
     }
+
+    @Test
+    void whenCreatingStackWithZeroCapacity_sizeShouldBeZero() {
+        stack = BoundedStack.MAKE(0);
+        assertEquals(0, stack.getSize());
+    }
 }

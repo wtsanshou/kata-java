@@ -58,7 +58,7 @@ class BoundedStack implements Stack {
 
         @Override
         public int getSize() {
-            return -1;
+            return 0;
         }
     }
 }
