@@ -61,4 +61,10 @@ class BoundedStackTest {
         stack = BoundedStack.MAKE(0);
         assertEquals(0, stack.getSize());
     }
+
+    @Test
+    void whenCreatingStackWithZeroCapacity_stackShouldBeEmpty() {
+        stack = BoundedStack.MAKE(0);
+        assertTrue(stack.isEmpty());
+    }
 }

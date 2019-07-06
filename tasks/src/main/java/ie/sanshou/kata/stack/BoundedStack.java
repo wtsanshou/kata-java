@@ -43,7 +43,7 @@ class BoundedStack implements Stack {
     private static class EmptyStack implements Stack {
         @Override
         public boolean isEmpty() {
-            return false;
+            return true;
         }
 
         @Override
