@@ -7,6 +7,7 @@ class Stack {
     private int capacity;
 
     private Stack(int capacity) {
+        if(capacity<0) throw new IllegalCapacity();
         this.capacity = capacity;
     }
 
@@ -38,5 +39,8 @@ class Stack {
     }
 
     static final class Underflow extends RuntimeException {
+    }
+
+    static final class IllegalCapacity extends RuntimeException{
     }
 }

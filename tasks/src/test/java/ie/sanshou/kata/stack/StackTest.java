@@ -39,4 +39,9 @@ class StackTest {
         assertThrows(Stack.Underflow.class, () -> stack.pop());
     }
 
+    @Test
+    void whenCreatingStackWithNegativeCapacity_shouldThrowIllegalCapacityException(){
+        assertThrows(Stack.IllegalCapacity.class, () -> Stack.MAKE(-1));
+    }
+
 }
