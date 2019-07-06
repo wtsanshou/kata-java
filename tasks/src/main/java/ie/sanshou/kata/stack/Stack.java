@@ -1,6 +1,6 @@
 package ie.sanshou.kata.stack;
 
-class MyStack {
+class Stack {
 
     private int size;
 

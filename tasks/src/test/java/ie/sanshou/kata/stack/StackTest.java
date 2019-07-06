@@ -7,8 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class StackTest {
 
-    private MyStack stack = new MyStack();
-
+    private Stack stack = new Stack();
 
     @Test
     void createStack() {
