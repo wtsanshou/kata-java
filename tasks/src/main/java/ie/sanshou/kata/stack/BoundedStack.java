@@ -53,12 +53,12 @@ class BoundedStack implements Stack {
 
         @Override
         public int pop() {
-            return 0;
+            throw new Underflow();
         }
 
         @Override
         public int getSize() {
-            return 0;
+            return -1;
         }
     }
 }

@@ -49,4 +49,10 @@ class BoundedStackTest {
         stack = BoundedStack.MAKE(0);
         assertThrows(BoundedStack.Overflow.class, () -> stack.push(1));
     }
+
+    @Test
+    void whenCreatingStackWithZeroCapacityAndPop_shouldUnderflowException() {
+        stack = BoundedStack.MAKE(0);
+        assertThrows(BoundedStack.Underflow.class, () -> stack.pop());
+    }
 }
