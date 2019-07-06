@@ -11,10 +11,14 @@ class Stack {
 
     void push(int element) {
         size++;
-        this.element=element;
+        this.element = element;
     }
 
     int pop() {
         return element;
+    }
+
+    int getSize() {
+        return size;
     }
 }

@@ -9,8 +9,9 @@ class StackTest {
     private Stack stack = new Stack();
 
     @Test
-    void createStack() {
+    void newlyCreatedStack_shouldBeEmpty() {
         assertTrue(stack.isEmpty());
+        assertEquals(0, stack.getSize());
     }
 
     @Test
@@ -20,10 +21,11 @@ class StackTest {
     }
 
     @Test
-    void stackPushOne_canGetOne(){
+    void stackPushOne_canGetOne() {
         stack.push(1);
         final int one = stack.pop();
         assertEquals(1, one);
     }
+
 
 }
