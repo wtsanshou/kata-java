@@ -21,10 +21,10 @@ class StackTest {
     }
 
     @Test
-    void stackPushOne_canGetOne() {
+    void stackPushOneAndPopOne_shouldBeEmpty() {
         stack.push(1);
-        final int one = stack.pop();
-        assertEquals(1, one);
+        stack.pop();
+        assertTrue(stack.isEmpty());
     }
 
 
