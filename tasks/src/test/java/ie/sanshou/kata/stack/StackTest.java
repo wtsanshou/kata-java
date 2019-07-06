@@ -34,4 +34,9 @@ class StackTest {
         assertThrows(Stack.Overflow.class, () -> stack.push(1));
     }
 
+    @Test
+    void afterPopOneFromEmptyStack_shouldThrowUnderflowException(){
+        assertThrows(Stack.Underflow.class, () -> stack.pop());
+    }
+
 }
