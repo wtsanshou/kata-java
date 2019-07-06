@@ -39,6 +39,11 @@ class BoundedStack implements Stack {
         return top;
     }
 
+    @Override
+    public int peek() {
+        return elements[top-1];
+    }
+
     private static class EmptyStack implements Stack {
         @Override
         public boolean isEmpty() {
@@ -57,6 +62,11 @@ class BoundedStack implements Stack {
 
         @Override
         public int getSize() {
+            return 0;
+        }
+
+        @Override
+        public int peek() {
             return 0;
         }
     }

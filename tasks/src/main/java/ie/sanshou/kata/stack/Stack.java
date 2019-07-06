@@ -9,6 +9,8 @@ public interface Stack {
 
     int getSize();
 
+    int peek();
+
     final class Overflow extends RuntimeException {
     }
 

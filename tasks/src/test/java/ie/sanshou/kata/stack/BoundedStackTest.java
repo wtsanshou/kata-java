@@ -77,4 +77,12 @@ class BoundedStackTest {
         final int one = stack.pop();
         assertEquals(1, one);
     }
+
+    @Test
+    void afterPushOneAndTwo_peekShouldBeTwo(){
+        stack.push(1);
+        stack.push(2);
+        final int two = stack.peek();
+        assertEquals(2, two);
+    }
 }
