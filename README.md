@@ -9,6 +9,7 @@ And practice these Kata
 2. Stack
 3. Wrap
 4. Lychrel
+5. DisJoinSet - Union/Find data structure
 
 ## Note
 
