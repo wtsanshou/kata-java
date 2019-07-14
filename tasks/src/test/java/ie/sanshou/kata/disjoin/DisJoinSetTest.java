@@ -2,7 +2,7 @@ package ie.sanshou.kata.disjoin;
 
 import org.junit.jupiter.api.Test;
 
-class DisJoinSet {
+class DisJoinSetTest {
     @Test
     void nothing() {
     }
