@@ -10,11 +10,12 @@ public class LychrelTest {
 
     @Test
     public void facts() {
-        isNotLychrel(1, 0, LIMIT);
-        isNotLychrel(2, 0, LIMIT);
+        isNotLychrel(1, 0);
+        isNotLychrel(2, 0);
+        isNotLychrel(10, 1);
     }
 
-    private void isNotLychrel(int n, int iteration, int limit) {
-        assertEquals(iteration, Lychrel.convergesAtIteration(n, limit));
+    private void isNotLychrel(int n, int iteration) {
+        assertEquals(iteration, Lychrel.convergesAtIteration(n, LIMIT));
     }
 }
