@@ -4,12 +4,12 @@ import java.math.BigInteger;
 
 public class Lychrel {
     public static int convergesAtIteration(int n, int limit) {
-        return converge(BigInteger.valueOf(n), 0);
+        return converge(BigInteger.valueOf(n), 0, limit);
     }
 
-    private static int converge(BigInteger n, int iteration) {
-        if (!isPalindrome(n))
-            return converge(n .add(reverse(n)), iteration + 1);
+    private static int converge(BigInteger n, int iteration, int limit) {
+        if (!isPalindrome(n) && iteration < limit)
+            return converge(n .add(reverse(n)), iteration + 1, limit);
         else
             return iteration;
     }
@@ -28,9 +28,11 @@ public class Lychrel {
 
     public static boolean isPalindrome(BigInteger n) {
         String digits = n.toString();
+
         for (int i = 0, j = digits.length() - 1; i < j; i++, j--)
             if (digits.charAt(i) != digits.charAt(j))
                 return false;
+            
         return true;
     }
 }

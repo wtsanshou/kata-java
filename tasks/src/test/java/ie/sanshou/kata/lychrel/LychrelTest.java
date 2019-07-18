@@ -1,6 +1,5 @@
 package ie.sanshou.kata.lychrel;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
@@ -20,6 +19,12 @@ public class LychrelTest {
         convergesAtIteration(19, 2);
         convergesAtIteration(78, 4);
         convergesAtIteration(89, 24);
+
+        doesNotConverge(196);
+    }
+
+    private void doesNotConverge(int n) {
+        convergesAtIteration(n, LIMIT);
     }
 
     private void convergesAtIteration(int n, int iteration) {
@@ -35,7 +40,7 @@ public class LychrelTest {
     }
 
     @Test
-    public void nonPalindromes(){
+    public void nonPalindromes() {
         isNotPalindrome(10);
         isNotPalindrome(12331);
     }
