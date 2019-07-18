@@ -4,8 +4,8 @@ public class Lychrel {
     public static int convergesAtIteration(int n, int limit) {
         if (!isPalindrome(n)) {
             int r = reverse(n);
-            int sum = r + n;
-            if (!isPalindrome(sum))
+            n = r + n;
+            if (!isPalindrome(n))
                 return 2;
             return 1;
         }
