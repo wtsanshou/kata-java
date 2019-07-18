@@ -3,8 +3,7 @@ package ie.sanshou.kata.lychrel;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LychrelTest {
 
@@ -28,9 +27,20 @@ public class LychrelTest {
         isPalindrome(1);
         isPalindrome(11);
         isPalindrome(121);
+        isPalindrome(12321);
+    }
+
+    @Test
+    public void nonPalindromes(){
+        isNotPalindrome(10);
+        isNotPalindrome(12331);
     }
 
     private void isPalindrome(int n) {
         assertTrue(Lychrel.isPalindrome(n));
+    }
+
+    private void isNotPalindrome(int n) {
+        assertFalse(Lychrel.isPalindrome(n));
     }
 }
