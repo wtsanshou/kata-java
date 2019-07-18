@@ -2,15 +2,19 @@ package ie.sanshou.kata.lychrel;
 
 public class Lychrel {
     public static int convergesAtIteration(int n, int limit) {
+        int iteration = 0;
         if (!isPalindrome(n)) {
+            iteration++;
             int r = reverse(n);
             n = r + n;
-            if (!isPalindrome(n))
-                return 2;
-            return 1;
+            if (!isPalindrome(n)) {
+                iteration++;
+                return iteration;
+            }
+            return iteration;
         }
         else
-            return 0;
+            return iteration;
     }
 
     public static int reverse(int n) {
