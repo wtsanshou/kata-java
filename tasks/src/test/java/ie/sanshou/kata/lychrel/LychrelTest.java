@@ -9,13 +9,13 @@ public class LychrelTest {
 
     private final int LIMIT = 1000;
 
-    @Disabled
     @Test
     public void facts() {
         convergesAtIteration(1, 0);
         convergesAtIteration(2, 0);
         convergesAtIteration(10, 1);
         convergesAtIteration(11, 0);
+        convergesAtIteration(19, 2);
     }
 
     private void convergesAtIteration(int n, int iteration) {
@@ -42,5 +42,17 @@ public class LychrelTest {
 
     private void isNotPalindrome(int n) {
         assertFalse(Lychrel.isPalindrome(n));
+    }
+
+    @Test
+    public void reversals() {
+        reversed(1, 1);
+        reversed(12, 21);
+        reversed(123, 321);
+        reversed(1234, 4321);
+    }
+
+    private void reversed(int n, int r) {
+        assertEquals(r, Lychrel.reverse(n));
     }
 }
