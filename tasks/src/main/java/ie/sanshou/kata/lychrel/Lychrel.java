@@ -14,15 +14,15 @@ public class Lychrel {
     }
 
     public static int reverse(int n) {
-        char[] nDigits = Integer.toString(n).toCharArray();
-        char[] rDigits = new char[nDigits.length];
+        char[] digits = Integer.toString(n).toCharArray();
 
-        final int lastIndex = nDigits.length - 1;
-        for (int i = lastIndex; i>=0; i--) {
-            rDigits[lastIndex-i] = nDigits[i];
+        for (int i = 0, j = digits.length - 1; i < j; i++, j--) {
+            char temp = digits[i];
+            digits[i] = digits[j];
+            digits[j] = temp;
         }
 
-        return Integer.valueOf(new String(rDigits));
+        return Integer.valueOf(new String(digits));
     }
 
     public static boolean isPalindrome(int n) {
