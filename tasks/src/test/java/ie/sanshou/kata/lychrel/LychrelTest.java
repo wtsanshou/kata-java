@@ -3,6 +3,8 @@ package ie.sanshou.kata.lychrel;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigInteger;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LychrelTest {
@@ -17,6 +19,7 @@ public class LychrelTest {
         convergesAtIteration(11, 0);
         convergesAtIteration(19, 2);
         convergesAtIteration(78, 4);
+        convergesAtIteration(89, 24);
     }
 
     private void convergesAtIteration(int n, int iteration) {
@@ -38,11 +41,11 @@ public class LychrelTest {
     }
 
     private void isPalindrome(int n) {
-        assertTrue(Lychrel.isPalindrome(n));
+        assertTrue(Lychrel.isPalindrome(BigInteger.valueOf(n)));
     }
 
     private void isNotPalindrome(int n) {
-        assertFalse(Lychrel.isPalindrome(n));
+        assertFalse(Lychrel.isPalindrome(BigInteger.valueOf(n)));
     }
 
     @Test
@@ -54,6 +57,6 @@ public class LychrelTest {
     }
 
     private void reversed(int n, int r) {
-        assertEquals(r, Lychrel.reverse(n));
+        assertEquals(r, Lychrel.reverse(BigInteger.valueOf(n)).longValue());
     }
 }

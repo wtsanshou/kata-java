@@ -1,19 +1,21 @@
 package ie.sanshou.kata.lychrel;
 
+import java.math.BigInteger;
+
 public class Lychrel {
     public static int convergesAtIteration(int n, int limit) {
-        return converge(n, 0);
+        return converge(BigInteger.valueOf(n), 0);
     }
 
-    private static int converge(int n, int iteration) {
+    private static int converge(BigInteger n, int iteration) {
         if (!isPalindrome(n))
-            return converge(n + reverse(n), iteration + 1);
+            return converge(n .add(reverse(n)), iteration + 1);
         else
             return iteration;
     }
 
-    public static int reverse(int n) {
-        char[] digits = Integer.toString(n).toCharArray();
+    public static BigInteger reverse(BigInteger n) {
+        char[] digits = n.toString().toCharArray();
 
         for (int i = 0, j = digits.length - 1; i < j; i++, j--) {
             char temp = digits[i];
@@ -21,11 +23,11 @@ public class Lychrel {
             digits[j] = temp;
         }
 
-        return Integer.valueOf(new String(digits));
+        return new BigInteger(new String(digits));
     }
 
-    public static boolean isPalindrome(int n) {
-        String digits = Integer.toString(n);
+    public static boolean isPalindrome(BigInteger n) {
+        String digits = n.toString();
         for (int i = 0, j = digits.length() - 1; i < j; i++, j--)
             if (digits.charAt(i) != digits.charAt(j))
                 return false;
