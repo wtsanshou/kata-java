@@ -2,7 +2,10 @@ package ie.sanshou.kata.lychrel;
 
 public class Lychrel {
     public static int convergesAtIteration(int n, int limit) {
-        int iteration = 0;
+        return converge(n, 0);
+    }
+
+    private static int converge(int n, int iteration) {
         if (!isPalindrome(n)) {
             iteration++;
             int r = reverse(n);
