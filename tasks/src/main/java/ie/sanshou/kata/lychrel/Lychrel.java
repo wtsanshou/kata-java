@@ -6,16 +6,8 @@ public class Lychrel {
     }
 
     private static int converge(int n, int iteration) {
-        if (!isPalindrome(n)) {
-            iteration++;
-            int r = reverse(n);
-            n = r + n;
-            if (!isPalindrome(n)) {
-                iteration++;
-                return iteration;
-            }
-            return iteration;
-        }
+        if (!isPalindrome(n))
+            return converge(n + reverse(n), iteration + 1);
         else
             return iteration;
     }
