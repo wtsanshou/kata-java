@@ -11,6 +11,7 @@ And practice these Kata
 4. Lychrel
 5. DisJoinSet - Union/Find data structure
 6. Queue
+7. Trie
 
 ## Note
 
