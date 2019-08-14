@@ -30,4 +30,13 @@ public class TrieTest {
         trie.insert("test2");
         assertFalse(trie.search("test"));
     }
+
+    @Test
+    public void trieCanSearchPrefix() {
+        Trie trie = new Trie();
+        trie.insert("test1");
+        trie.insert("test2");
+        assertTrue(trie.startsWith("test"));
+        assertFalse(trie.startsWith("tset"));
+    }
 }
