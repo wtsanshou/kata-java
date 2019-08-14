@@ -1,14 +1,14 @@
 package ie.sanshou.kata.trie;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Trie {
 
-    private List<String> words;
+    private Set<String> words;
 
     public Trie() {
-        words = new ArrayList<>();
+        words = new HashSet<>();
     }
 
     public void insert(String word) {
@@ -16,6 +16,6 @@ public class Trie {
     }
 
     public boolean search(String word) {
-        return words.stream().anyMatch(w -> w.equals(word));
+        return words.contains(word);
     }
 }
