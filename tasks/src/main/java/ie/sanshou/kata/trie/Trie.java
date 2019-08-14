@@ -1,14 +1,21 @@
 package ie.sanshou.kata.trie;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Trie {
 
-    private String word;
+    private List<String> words;
+
+    public Trie() {
+        words = new ArrayList<>();
+    }
 
     public void insert(String word) {
-        this.word = word;
+        this.words.add(word);
     }
 
     public boolean search(String word) {
-        return this.word.equals(word);
+        return words.stream().anyMatch(w -> w.equals(word));
     }
 }
