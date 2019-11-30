@@ -13,6 +13,10 @@ And practice these Kata
 6. Queue
 7. Trie
 
+## Refactor List
+
+1. Movie Rental Shop
+
 ## Note
 
 * Only initial Kata in the master
