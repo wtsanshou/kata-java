@@ -20,19 +20,20 @@ public class Customer {
     }
 
     public String statement() {
-        int frequentRenterPoints = 0;
         String result = "Rental record for " + getName() + "\n";
 
         for (Rental each : rentals) {
-            frequentRenterPoints += each.getFrequentRenterPoints();
-
             // show figures for this rental
             result += "\t" + each.getMovie().getTitle() + "\t" + each.getCharge() + "\n";
         }
 
         result += "Amount owed is " + getTotalAmount() + "\n";
-        result += "You earned " + frequentRenterPoints + " frequent renter points";
+        result += "You earned " + getFrequentRenterPoints() + " frequent renter points";
         return result;
+    }
+
+    private int getFrequentRenterPoints() {
+        return rentals.stream().mapToInt(Rental::getFrequentRenterPoints).sum();
     }
 
     private double getTotalAmount() {
